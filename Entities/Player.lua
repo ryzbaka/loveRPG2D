@@ -1,9 +1,9 @@
-local Sprite = require("Entities.Sprite")
+Sprite = require("Entities.Sprite")
 
-local Player = Sprite:subclass("Player")
+Player = Sprite:subclass("Player")
 
 function Player:initialize(x, y, speed)
-    Sprite:initialize(x, y)
+    Sprite.initialize(self, x, y, "spritesheets/characters/playerhair.png", 50, 50, 1, "1-3")
     self.speed = speed
 end
 
