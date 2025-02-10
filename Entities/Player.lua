@@ -5,9 +5,13 @@ Player = Sprite:subclass("Player")
 function Player:initialize(x, y, speed)
     Sprite.initialize(self, x, y, "spritesheets/characters/playerhair.png", 50, 50, 5, 2)
     self:addAnimation("right-move", "1-4", 4)
+    self:addAnimation("right-idle", 5, 4)
     self:addAnimationMirrored("left-move", "right-move")
+    self:addAnimationMirrored("left-idle", "right-idle")
     self:addAnimation("up-move", "1-4", 1)
+    self:addAnimation("up-idle", "1-4", 4)
     self:addAnimation("down-move", "1-4", 2)
+    self:addAnimation("down-idle", "1-4", 2)
     self.direction = "down"
     self.isMoving = false
     self.speed = speed
@@ -44,6 +48,7 @@ end
 function Player:handleMovement()
     if love.keyboard.isDown("w") then
         self:moveUp()
+	moveString+=
     end
     if love.keyboard.isDown("a") then
         self:moveLeft()
@@ -55,7 +60,13 @@ function Player:handleMovement()
         self:moveRight()
     end
     if not self.isMoving then
-        self.current_animation = "idle"
+	    if self.direction=="right" then
+		    self.current_animation = "right-idle"
+            elseif self.direction=="left" then
+		    self.current_animation = "left-idle"
+	    else
+		    self.current_animation = "idle"
+            end
     end
     self.isMoving = false
 end

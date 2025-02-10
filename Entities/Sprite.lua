@@ -8,7 +8,7 @@ Sprite.instances = {} -- static variable keeping track of all sprites
 function Sprite:initialize(x, y, spritesheet_path, spriteX, spriteY, idleCols, idleRow)
     self.x = x
     self.y = y
-    self.animationSpeed = 0.1
+    self.animationSpeed = 0.05
     self.spritesheet = love.graphics.newImage(spritesheet_path)
     self.grid = anim8.newGrid(spriteX, spriteY, self.spritesheet:getWidth(), self.spritesheet:getHeight())
     self.animations = {
