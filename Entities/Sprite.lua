@@ -23,7 +23,7 @@ function Sprite:addAnimation(name, cols, row)
     self.animations[name] = newAnimation
 end
 
-function Sprite:addAnimationMirror(name, source)
+function Sprite:addAnimationMirrored(name, source)
     local newAnimation = self.animations[source]:clone():flipH()
     self.animations[name] = newAnimation
 end
